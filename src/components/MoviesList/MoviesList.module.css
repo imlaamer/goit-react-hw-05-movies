@@ -1,9 +1,8 @@
 .moviesList {
-  padding: 70px 40px 20px;
+  padding: 40px 20px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
   align-items: center;
   column-gap: 10px;

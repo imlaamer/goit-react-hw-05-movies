@@ -65,6 +65,7 @@ function HomePage() {
 
   return (
     <>
+      <h1 style={{ marginTop: 100, textAlign: 'center' }}>Trending today</h1>
       {movies.length > 0 && (
         <MoviesList movies={movies} moviesListRef={moviesListRef} />
       )}
