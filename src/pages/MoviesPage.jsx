@@ -9,13 +9,14 @@ import MoviesList from 'components/MoviesList/MoviesList';
 
 function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState(() => searchParams.get('query') ?? '');
+  const queryParam = searchParams.get('query');
+  const [query, setQuery] = useState(() => queryParam ?? '');
   const [status, setStatus] = useState(STATUSES.idle);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!query) return;
+    if (!searchParams.get('query')) return;
     const fetchMoviesByQuery = async () => {
       try {
         setStatus(STATUSES.pending);
@@ -38,7 +39,7 @@ function MoviesPage() {
 
   const handleSearchMoviesOnSubmit = event => {
     event.preventDefault();
-    if (query === searchParams.get('query')) {
+    if (query === queryParam) {
       return alert('Wa have already found movies for you');
     }
 
