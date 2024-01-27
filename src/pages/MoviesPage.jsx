@@ -7,7 +7,7 @@ import MoviesSearchForm from 'components/MoviesSearchForm/MoviesSearchForm';
 import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
 
-function MoviesPage(props) {
+function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(() => searchParams.get('query') ?? '');
   const [status, setStatus] = useState(STATUSES.idle);
@@ -29,7 +29,7 @@ function MoviesPage(props) {
       }
     };
     fetchMoviesByQuery();
-  }, []);
+  }, [query]); //
 
   const handleValueChange = event => {
     const { value } = event.currentTarget;
