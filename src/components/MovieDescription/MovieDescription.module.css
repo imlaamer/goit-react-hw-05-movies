@@ -1,0 +1,81 @@
+.goBackBtn {
+  margin-top: 80px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  transition: all 250ms ease-in-out;
+}
+
+.goBackBtn:is(:hover, :focus) {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.03);
+  cursor: pointer;
+}
+.movieDescriptionContainer {
+  max-width: 1158px;
+  border-color: black;
+  color: black;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  display: flex;
+  gap: 20px;
+}
+
+.descriptionImgBox > img {
+  width: 260px;
+}
+.descriptionBox > h2,
+h3,
+h4 {
+  margin-bottom: 20px;
+}
+.descriptionText {
+  margin-bottom: 20px;
+}
+
+.descriptionImgBox {
+  width: 25%;
+}
+.descriptionBox {
+  width: 75%;
+}
+
+.descriptionGenresList {
+  display: flex;
+  gap: 10px;
+}
+
+.descriptionGenreItem:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.additionalList {
+  max-width: 1158px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.additionalList > li {
+  list-style-type: disc;
+}
+.additionalLink {
+  color: black;
+  font-weight: 600;
+}
+.additionalLink:is(:hover, :focus) {
+  border-bottom: 1px solid black;
+}
+.additionalLink {
+  transition: all 100ms ease-in-out;
+}
+
+.active {
+  border-bottom: 1px solid black;
+}

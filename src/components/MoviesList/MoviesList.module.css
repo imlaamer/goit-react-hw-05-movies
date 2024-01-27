@@ -1,0 +1,44 @@
+.moviesList {
+  padding: 70px 40px 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+.movieItem {
+  min-height: 370px;
+  max-width: 200px;
+  align-self: baseline;
+}
+
+.movieLink {
+  min-height: 370px;
+  color: black;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.movieLink:is(:hover, :focus) {
+  border-bottom: 1px solid black;
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.movieLink:is(:hover, :focus) > .movieListImg {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.movieListImg {
+  transition: all 250ms ease-in-out;
+}
+.movieTitle {
+  font-weight: 600;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}

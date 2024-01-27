@@ -1,0 +1,21 @@
+.loadMoreBtnBox {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.loadMoreBtn {
+  padding: 10px 20px;
+  background-color: black;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  transition: all 250ms ease-in-out;
+}
+
+.loadMoreBtn:is(:focus, :hover) {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.03);
+  cursor: pointer;
+}

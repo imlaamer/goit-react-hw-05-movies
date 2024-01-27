@@ -1,0 +1,18 @@
+.reviewText {
+}
+
+.reviewItem {
+  margin-bottom: 10px;
+}
+
+.reviewsList {
+  padding: 20px 0;
+}
+
+.emptyReviews {
+  padding: 20px 0;
+}
+
+.outletWrapper {
+  border-top: 1px solid black;
+}
