@@ -5,6 +5,7 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from 'components/LoadMoreBtn.jsx/LoadMoreBtn';
+import EmptyMoviesList from 'components/EmptyMoviesList/EmptyMoviesList';
 
 function HomePage() {
   const [status, setStatus] = useState(STATUSES.idle);
@@ -23,6 +24,7 @@ function HomePage() {
         const { results: moviesData, total_results } = await getTrendingMovies(
           page
         );
+
         if (moviesData.length === 0) {
           setIsEmpty(true);
           setStatus(STATUSES.idle);
@@ -52,7 +54,7 @@ function HomePage() {
             moviesListRef.current.firstElementChild.getBoundingClientRect().top;
           const itemsPerCollumn = window.innerHeight / itemHeight;
           window.scrollTo({
-            top: itemHeight * itemsPerCollumn - 80 - topHeight,
+            top: itemHeight * itemsPerCollumn - 80 - topHeight, //..
             behavior: 'smooth',
           });
         }
@@ -66,6 +68,7 @@ function HomePage() {
       {movies.length > 0 && (
         <MoviesList movies={movies} moviesListRef={moviesListRef} />
       )}
+      {isEmpty && <EmptyMoviesList />}
       {isLoadMore && <LoadMoreBtn onClick={handleLoadMore} />}
       {status === STATUSES.error && <ErrorMessage error={error} />}
       {status === STATUSES.pending && <Loader className="loadingBox" />}
