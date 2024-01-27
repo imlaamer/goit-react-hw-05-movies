@@ -29,7 +29,7 @@ function MoviesPage() {
       }
     };
     fetchMoviesByQuery();
-  }, [query]); //
+  }, []); //для першого рендеру при відкритті посилання
 
   const handleValueChange = event => {
     const { value } = event.currentTarget;
