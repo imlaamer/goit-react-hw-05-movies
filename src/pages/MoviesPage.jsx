@@ -8,19 +8,18 @@ import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
 
 function MoviesPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const queryParam = searchParams.get('query');
-  const [query, setQuery] = useState(() => queryParam ?? '');
   const [status, setStatus] = useState(STATUSES.idle);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!searchParams.get('query')) return;
+    if (!queryParam) return;
     const fetchMoviesByQuery = async () => {
       try {
         setStatus(STATUSES.pending);
-        const { results: movies } = await getMoviesByQuery(query);
+        const { results: movies } = await getMoviesByQuery(queryParam);
         setStatus(STATUSES.success);
         setMovies(movies);
       } catch (error) {
@@ -30,48 +29,11 @@ function MoviesPage() {
       }
     };
     fetchMoviesByQuery();
-  }, []); //для першого рендеру при відкритті посилання
-
-  const handleValueChange = event => {
-    const { value } = event.currentTarget;
-    setQuery(value);
-  };
-
-  const handleSearchMoviesOnSubmit = event => {
-    event.preventDefault();
-    if (query === queryParam) {
-      return alert('Wa have already found movies for you');
-    }
-
-    if (query.trim() === '') {
-      setQuery('');
-      alert('Please enter a movie tittle ');
-      return;
-    }
-    const fetchMoviesByQuery = async queryParam => {
-      setSearchParams({ query: queryParam });
-      try {
-        setStatus(STATUSES.pending);
-        const { results: movies } = await getMoviesByQuery(query);
-        setStatus(STATUSES.success);
-        setMovies(movies);
-      } catch (error) {
-        setStatus(STATUSES.error);
-        setError(error);
-        console.log('Oops');
-      }
-    };
-    fetchMoviesByQuery(query);
-  };
+  }, [queryParam]);
 
   return (
     <>
-      <MoviesSearchForm
-        onSubmit={handleSearchMoviesOnSubmit}
-        onChange={handleValueChange}
-        query={query}
-      />
-
+      <MoviesSearchForm />
       {status === STATUSES.success && movies.length === 0 && (
         <p style={{ marginTop: 40, textAlign: 'center' }}>
           No results found for your search. <br /> Search again

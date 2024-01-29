@@ -7,7 +7,7 @@ function MoviesList({ movies, moviesListRef }) {
 
   return (
     <ul className={css.moviesList} ref={moviesListRef}>
-      {movies?.map(({ id, title, poster_path, name = 'movie' }) => {
+      {movies.map(({ id, title, poster_path, name = 'movie' }) => {
         return (
           <li key={id} className={css.movieItem}>
             <NavLink

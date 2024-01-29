@@ -35,7 +35,7 @@ function Cast() {
 
       {status === STATUSES.success && cast.length > 0 && (
         <ul className={css.castList}>
-          {cast?.map(({ id, name: authorName, profile_path, character }) => {
+          {cast.map(({ id, name: authorName, profile_path, character }) => {
             const isHaveBracket = character.includes('(');
             return (
               <li key={id} className={css.castItem}>

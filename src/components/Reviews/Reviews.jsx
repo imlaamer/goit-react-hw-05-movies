@@ -39,7 +39,7 @@ function Reviews(props) {
       )}
       {status === STATUSES.success && reviews.length > 0 && (
         <ul className={css.reviewsList}>
-          {reviews?.map(({ id, author, content }) => {
+          {reviews.map(({ id, author, content }) => {
             return (
               <li key={id} className={css.reviewItem}>
                 <h4>Author: {author}</h4>

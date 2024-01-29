@@ -1,7 +1,8 @@
+import { Suspense } from 'react';
 import css from './SharedLayout.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
-export function SharedLayout({ children }) {
+export function SharedLayout() {
   return (
     <div className={css.container}>
       <header>
@@ -26,7 +27,13 @@ export function SharedLayout({ children }) {
           {/* </nav> */}
         </div>
       </header>
-      <main>{children}</main>
+      <main>
+        <Suspense
+          fallback={<div style={{ marginTop: 100 }}>Loading page...</div>}
+        >
+          <Outlet />
+        </Suspense>
+      </main>
     </div>
   );
 }

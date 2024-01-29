@@ -57,6 +57,7 @@ function MovieDescription({ movie }) {
           </ul>
         </div>
       </div>
+
       <div>
         <p>Additional information</p>
         <ul className={css.additionalList}>
@@ -83,6 +84,7 @@ function MovieDescription({ movie }) {
             </NavLink>
           </li>
         </ul>
+        {/* тут suspense чомусь не працює */}
         <Outlet />
       </div>
     </>
